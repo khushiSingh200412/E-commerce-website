@@ -1,0 +1,154 @@
+/* checkout.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+.order-summary,
+.address-form {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.order-summary h2,
+.address-form h2 {
+    color: #333;
+}
+
+.total {
+    text-align: right;
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+textarea,
+input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* New styles for checkout page */
+.header {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.logo {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.cart {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.fa-cart-shopping {
+    font-size: 24px;
+    margin-right: 5px;
+}
+
+#count {
+    margin: 0;
+    background-color: #4caf50;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 50%;
+    font-size: 16px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+.sidebar {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    min-width: 200px;
+}
+
+.head p {
+    margin: 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#cartItem {
+    color: #ddd;
+}
+
+.head,
+.foot {
+    background-color: #4caf50;
+    padding: 10px;
+    text-align: center;
+}
+
+.foot h3,
+.foot h2 {
+    margin: 0;
+    color: white;
+}
+
+#total {
+    color: #4caf50;
+    font-size: 24px;
+    margin-top: 10px;
+}
+
+#checkoutButton {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+#checkoutButton:hover {
+    background-color: #45a049;
+}

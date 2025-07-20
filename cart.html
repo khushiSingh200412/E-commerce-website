@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        .header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        #cart {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        #cart-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        .cart-item img {
+            max-width: 50px;
+            margin-right: 10px;
+        }
+
+        .cart-item span {
+            flex-grow: 1;
+        }
+
+        .cart-item button {
+            margin-left: 10px;
+            cursor: pointer;
+            padding: 5px 10px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+        }
+
+        .cart-item button:hover {
+            background-color: #45a049;
+        }
+
+        #total-amount {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">Cart</div>
+        <a href="index1.html">Back to home page</a>
+    </div>
+
+    <div id="cart">
+        <h2>Shopping Cart</h2>
+        <ul id="cart-list"></ul>
+        <p>Total Amount: &#8377;<span id="total-amount">0</span></p>
+        <button id="checkoutButton" onclick="checkout()">Checkout</button>
+    </div>
+
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            function updateCartCount() {
+              const cart = JSON.parse(localStorage.getItem('cart')) || [];
+              const countElement = document.getElementById('count');
+              const cartCount = cart.reduce((total, item) => total + item.quantity,  0);
+          
+              countElement.textContent = cartCount;
+            }
+          
+            updateCartCount(); // Update cart count on page load
+          });
+        function checkout() {
+            const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
+            
+            // Check if the cart is not empty before redirecting to the checkout page
+            if (storedCart.length > 0) {
+                localStorage.setItem('checkoutCart', JSON.stringify(storedCart));
+                window.location.href = 'checkout.html';
+            } else {
+                alert('Your cart is empty. Add items to the cart before checking out.');
+            }
+        }
+        window.onload = function () {
+            showCart();
+        };
+
+        function showCart() {
+            const cartList = document.getElementById('cart-list');
+            const totalAmountElement = document.getElementById('total-amount');
+            let totalAmount = 0;
+
+            const storedCart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            cartList.innerHTML = '';
+
+            storedCart.forEach(item => {
+                const listItem = document.createElement('li');
+                listItem.className = 'cart-item';
+                listItem.innerHTML = `
+                    <span>${item.productName} - &#8377;${item.price} (Qty: ${item.quantity || 1})</span>
+                    <span>
+                        <button onclick="removeItem('${item.productId}')">Remove</button>
+                        <button onclick="decreaseQuantity('${item.productId}')">-</button>
+                        <button onclick="increaseQuantity('${item.productId}')">+</button>
+                    </span>
+                `;
+                cartList.appendChild(listItem);
+
+                totalAmount += item.price * (item.quantity || 1);
+            });
+
+            totalAmountElement.textContent = totalAmount;
+        }
+
+        function removeItem(productId) {
+            let storedCart = JSON.parse(localStorage.getItem('cart')) || [];
+            storedCart = storedCart.filter(item => item.productId !== productId);
+            localStorage.setItem('cart', JSON.stringify(storedCart));
+            showCart();
+        }
+
+        function increaseQuantity(productId) {
+            let storedCart = JSON.parse(localStorage.getItem('cart')) || [];
+            const selectedItem = storedCart.find(item => item.productId === productId);
+
+            if (selectedItem) {
+                selectedItem.quantity = (selectedItem.quantity || 1) + 1;
+                localStorage.setItem('cart', JSON.stringify(storedCart));
+                showCart();
+            }
+        }
+
+        function decreaseQuantity(productId) {
+            let storedCart = JSON.parse(localStorage.getItem('cart')) || [];
+            const selectedItem = storedCart.find(item => item.productId === productId);
+
+            if (selectedItem && selectedItem.quantity > 1) {
+                selectedItem.quantity -= 1;
+                localStorage.setItem('cart', JSON.stringify(storedCart));
+                showCart();
+            }
+        }
+        document.addEventListener("DOMContentLoaded", function() {
+            function updateCartCount() {
+              const cart = JSON.parse(localStorage.getItem('cart')) || [];
+              const countElement = document.getElementById('count');
+              const cartCount = cart.reduce((total, item) => total + item.quantity,  0);
+          
+              countElement.textContent = cartCount;
+            }
+          
+            updateCartCount(); // Update cart count on page load
+          });
+        
+    </script>
+</body>
+</html>

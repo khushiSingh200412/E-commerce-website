@@ -1,0 +1,83 @@
+<!-- checkout.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="checkout.css">
+    <script src="https://kit.fontawesome.com/92d70a2fd8.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="order-summary">
+        <h2>Order Summary</h2>
+        <div id="orderItem">Your order details go here</div>
+        <div class="total">
+            <h3>Total</h3>
+            <h2 id="total">₹ 0.00</h2>
+        </div>
+    </div>
+
+    <div class="address-form">
+        <h2>Enter Your Address</h2>
+        <form id="addressForm" action="process_order.php" method="post">
+            <!-- Include hidden fields for product details -->
+            <input type="hidden" id="order_details" name="order_details" value="">
+            <input type="hidden" id="order_total" name="order_total" value="0.00">
+
+            <label for="fullName">Full Name:</label>
+            <input type="text" id="fullName" name="fullName" required>
+
+            <label for="mobileNumber">Mobile Number:</label>
+            <input type="text" id="mobileNumber" name="mobileNumber" required>
+
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" required></textarea>
+
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" required>
+
+            <label for="zipCode">Zip Code:</label>
+            <input type="text" id="zipCode" name="zipCode" required>
+
+            <button type="button" onclick="placeOrder()">Place Order</button>
+        </form>
+    </div>
+
+    <script>
+        window.onload = function () {
+            showCheckout();
+        };
+
+        function showCheckout() {
+            const orderItem = document.getElementById('orderItem');
+            const totalElement = document.getElementById('total');
+            const orderDetails = JSON.parse(localStorage.getItem('checkoutCart')) || [];
+
+            orderItem.innerHTML = '';
+
+            let totalAmount = 0;
+
+            orderDetails.forEach(item => {
+                const orderItemElement = document.createElement('div');
+                orderItemElement.innerHTML = `
+                    <p>${item.productName} - ₹${item.price} (Qty: ${item.quantity || 1})</p>
+                `;
+                orderItem.appendChild(orderItemElement);
+
+                totalAmount += item.price * (item.quantity || 1);
+            });
+
+            totalElement.textContent = `₹ ${totalAmount.toFixed(2)}`;
+
+            // Set values in hidden fields for form submission
+            document.getElementById('order_details').value = JSON.stringify(orderDetails);
+            document.getElementById('order_total').value = totalAmount.toFixed(2);
+        }
+
+        function placeOrder() {
+            // Add additional logic for placing the order, e.g., form submission
+            alert('Order placed successfully!'); // Placeholder, replace with your implementation
+        }
+    </script>
+</body>
+</html>
