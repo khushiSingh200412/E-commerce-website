@@ -1,0 +1,58 @@
+body{
+    background-image: url("logo.jpg"); 
+        background-attachment: fixed;
+        background-size: 100% 100%;
+        background-repeat: none;
+        position: relative;
+        top:0px;
+        opacity: .5px;
+}
+.button{
+    padding:15px 25px;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color:#fff;
+    background-color:aqua ;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+.botton:hover {
+    background-color: blue;
+}
+.botton:active {
+    background-color: chocolate;
+    box-shadow: 0 5px #666;
+    transform: translatey(4px);
+} 
+.nav{
+    position: absolute;
+    right:40%;
+}
+content{
+    width: 100%;
+    height: 800px;
+}
+footer{
+    display: flex;
+   
+}
+.footer{
+    margin-bottom: 0%;
+    height: 100px;
+    width: 100%;
+
+}
+.footerleft{
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    padding:50px;
+}
+.flist{
+    padding: 0px;
+    list-style: none;
+}

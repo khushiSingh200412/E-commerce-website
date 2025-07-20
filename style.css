@@ -1,0 +1,160 @@
+/* Reset CSS */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Styles */
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+}
+
+#container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+#menu img {
+    height: 80px;
+    width: auto;
+}
+
+#bar {
+    display: flex;
+    align-items: center;
+}
+
+#bar a {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+#bar input {
+    height: 30px;
+    width: 200px;
+    margin-right: 20px;
+}
+
+#bar button {
+    height: 30px;
+    padding: 0 10px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.menulist {
+    background-color: white;
+    height: 40px;
+    display: flex;
+    gap: 80px;
+    align-items: center;
+}
+
+.a {
+    color: black;
+    text-decoration: none;
+    position: relative;
+    top: 2px;
+    margin-right: 20px;
+}
+
+/* Shop Section Styles */
+.shop-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 20px;
+}
+
+.box {
+    height: 400px;
+    width: 30%;
+    background-color: white;
+    margin-top: 15px;
+    padding: 20px 0px 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.box-content {
+    margin: 0 1rem;
+}
+
+.box h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.box-img {
+    height: 300px;
+    background-size: cover;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+}
+
+.box p {
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #17202b;
+    color: white;
+    padding: 20px 0;
+    margin-top: 20px;
+}
+
+.footer1{
+    text-align: center;
+}
+.foot-panel2 {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+}
+
+ul {
+    list-style: none;
+}
+
+ul a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Cart Icon Styles */
+.cart {
+    background-color:black;
+    color:black;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.fa fa-shopping-cart{
+   background-color: white;
+   text-align: center;
+}

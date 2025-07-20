@@ -1,0 +1,22 @@
+#container{
+    background-color:black;
+    border: 2px solid black;
+    display: flex;
+    flex-wrap: wrap;
+    
+
+}
+#menu{
+    background-color: beige;
+    background-image: url('logo.jpg');
+    color: black;
+}
+#bar{
+    background-color: black;
+    margin-top: 30px;
+    margin-left:20px;
+}
+a{
+    
+    margin-top:30px ;
+}
